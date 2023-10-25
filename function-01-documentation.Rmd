@@ -1,0 +1,52 @@
+---
+title: "function-01-documentation"
+output: html_document
+date: "2023-10-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r load-packages, include=FALSE}
+library(dplyr)
+library(magrittr)
+library(knitr)
+library(ggplot2)
+```
+
+## Function
+```{r echo_example, echo=TRUE}
+function1 <- function(data, order_by){
+  
+  # A transformation function that perform some reordering on the dataset in argument
+  # 
+  # argument: 
+  #   data (a dateset). Here we use mpg dataset.
+  #   order_by: specifiying a numeric column to reorder the dataset. only 'displ', 
+  #             'year', 'cyl', 'cty', 'hwy' are ligal input arguments. 
+  # 
+  # return: tibble after transformation
+  
+  tb <- data %>% arrange(order_by)
+  
+  return (tb)
+}
+```
+## Parameters
+#### 1. parameter: data
+The first input parameter of the function is a dataset. Here the 'mpg' dataset in package 'ggplot2' is selected as my input dataset.
+
+#### 2. parameter 2: order_by
+Specifiy a numeric column to reorder the dataset. only 'displ', 'year', 'cyl', 'cty', 'hwy' are ligal input parameters.
+
+For example, we use mpg data and order by displ, the following table would be the output. The output tibble is ordered by "displ"
+```{r}
+function1(mpg, mpg$displ)
+```
+## Appendix: all code in this documentation
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} 
+# this chunk generates the complete code appendix. 
+# eval=FALSE tells R not to run (``evaluate'') the code here (it was already run before).
+```
