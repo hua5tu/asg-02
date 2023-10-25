@@ -6,16 +6,18 @@ library(ggplot2)
 ```
 
 ```{r echo_example, echo=TRUE}
-function1 <- function(data){
+function1 <- function(data, order_by){
   
-  # A transformation function that perform some reordering on the dataset in argument. Here we perform order by displ on mpg dataset.
+  # A transformation function that perform some reordering on the dataset in argument.
   # 
   # argument: 
   #   data (a dateset). Here we use mpg dataset.
+  #   order_by: specifiying a numeric column to reorder the dataset. only 'displ', 
+  #             'year', 'cyl', 'cty', 'hwy' are ligal input arguments. 
   # 
   # return: tibble after transformation
   
-  tb <- data %>% arrange(mpg$displ)
+  tb <- data %>% arrange(order_by)
   
   return (tb)
 }
