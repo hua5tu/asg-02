@@ -1,0 +1,22 @@
+```{r load-packages, include=FALSE}
+library(dplyr)
+library(magrittr)
+library(knitr)
+library(ggplot2)
+```
+
+```{r echo_example, echo=TRUE}
+function1 <- function(data){
+  
+  # A transformation function that perform some reordering on the dataset in argument. Here we perform order by displ on mpg dataset.
+  # 
+  # argument: 
+  #   data (a dateset). Here we use mpg dataset.
+  # 
+  # return: tibble after transformation
+  
+  tb <- data %>% arrange(mpg$displ)
+  
+  return (tb)
+}
+```
